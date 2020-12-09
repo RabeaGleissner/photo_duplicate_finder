@@ -10,7 +10,7 @@ By default the program is looking for a directory called `photos` in the root of
 
 If your directory has a different name, you can use the `--photos_directory ` flag to specify the name like this:
 
-`ruby find_duplicates.rb --photos_directory my_photos`
+`ruby find_duplicates.rb --directory my_photos`
 
 ## How to run the tests
 

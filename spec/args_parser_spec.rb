@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'args_parser'
 
 describe ArgsParser do
@@ -28,6 +30,6 @@ describe ArgsParser do
   it 'errors when only unknown flag is given' do
     arguments = ['--photo_directory', 'my_photos']
 
-    expect {ArgsParser.photos_directory(arguments)}.to raise_exception('Invalid options given')
+    expect { ArgsParser.photos_directory(arguments) }.to raise_exception('Invalid options given')
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ArgsParser
   DEFAULT_DIRECTORY_NAME = 'photos'
   DIRECTORY_FLAG = '--directory'

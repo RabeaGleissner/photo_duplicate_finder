@@ -37,11 +37,6 @@ class MultiplesFinder
   end
 
   def files_are_same?(file, file_to_compare)
-    File.open(file).readlines.each do |line|
-      unless File.open(file_to_compare).include?(line)
-        return false
-      end
-    end
-    true
+    File.read(file) == File.read(file_to_compare)
   end
 end

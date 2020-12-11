@@ -5,8 +5,8 @@ require_relative 'lib/file_lister'
 require_relative 'lib/multiples_finder'
 require_relative 'lib/output_formatter'
 
-directory_name = ArgsParser.photos_directory(ARGV)
-files = FileLister.list_files(directory_name)
-multiples = MultiplesFinder.new(files).find_multiples
-formatted_output = OutputFormatter.new(multiples).format
+directory_name = ArgsParser.new(ARGV).photos_directory
+multiples = MultiplesFinder.new(FileLister.list_files(directory_name)).find_multiples
+formatted_output = OutputFormatter.new(multiples, directory_name).format
+
 puts formatted_output

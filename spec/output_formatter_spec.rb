@@ -4,8 +4,8 @@ require 'output_formatter'
 
 describe OutputFormatter do
   it 'returns message for when there are no duplicates' do
-    output_formatter = OutputFormatter.new([])
-    expect(output_formatter.format).to eql('There are no duplicates!')
+    output_formatter = OutputFormatter.new([], 'my photos directory')
+    expect(output_formatter.format).to eql("There are no duplicates in your folder called 'my photos directory'!")
   end
 
   it 'formats output' do
@@ -18,7 +18,7 @@ describe OutputFormatter do
       'photos/animals/starfish.jpg'
     ]]
 
-    output_formatter = OutputFormatter.new(duplicate_files)
+    output_formatter = OutputFormatter.new(duplicate_files, '')
     expected_output = "These photos are duplicates:
 
 ********

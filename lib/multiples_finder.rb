@@ -3,15 +3,15 @@
 class MultiplesFinder
   def initialize(files)
     @files_to_compare = files
-    @multiples_sets = []
+    @sets_of_multiples = []
   end
 
   def find_multiples
     @files_to_compare.each do |file_to_compare|
       copies = find_copies_of_file(file_to_compare)
-      copies.any? && @multiples_sets.push(copies.flatten.uniq)
+      copies.any? && @sets_of_multiples << copies.flatten.uniq
     end
-    @multiples_sets
+    @sets_of_multiples
   end
 
   private
@@ -19,7 +19,7 @@ class MultiplesFinder
   def find_copies_of_file(file_to_compare)
     files_without_current(file_to_compare).each_with_object([]) do |file, multiples|
       if new_duplicate_identified?(file, file_to_compare)
-        multiples.push([file, file_to_compare])
+        multiples << [file, file_to_compare]
       end
     end
   end
@@ -33,7 +33,7 @@ class MultiplesFinder
   end
 
   def file_not_identified_as_duplicate?(file)
-    !@multiples_sets.flatten.include?(file)
+    !@sets_of_multiples.flatten.include?(file)
   end
 
   def files_are_same?(file, file_to_compare)

@@ -16,6 +16,8 @@ class OutputFormatter
     "These photos are duplicates:\n#{DELIMITER}#{duplicated_photos}"
   end
 
+  private
+
   def duplicated_photos
     @sets_of_multiples.map { |set| set.join("\n") }.join(DELIMITER)
   end
